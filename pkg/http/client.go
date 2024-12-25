@@ -1,3 +1,6 @@
+// Package http provides utilities for making HTTP requests and processing
+// HTTP responses. It abstracts the standard library's http.Client to simplify
+// common HTTP operations.
 package http
 
 import (
@@ -7,7 +10,26 @@ import (
 	"net/http"
 )
 
-// SendRequest handles making an HTTP request
+// SendRequest sends an HTTP request to the specified URL using the given method.
+// It returns the HTTP headers and body as strings, along with any error encountered.
+//
+// Parameters:
+//   - url: The endpoint to which the request will be sent.
+//   - method: The HTTP method to use (e.g., "GET", "POST").
+//
+// Returns:
+//   - headers: A formatted string containing the response headers.
+//   - body: The response body as a string.
+//   - err: Any error encountered during the request.
+//
+// Example:
+//
+//	headers, body, err := SendRequest("https://api.example.com/data", "GET")
+//	if err != nil {
+//	    log.Fatalf("Request failed: %v", err)
+//	}
+//	fmt.Println("Headers:", headers)
+//	fmt.Println("Body:", body)
 func SendRequest(url, method string) (string, string, error) {
 	var req *http.Request
 	var err error
