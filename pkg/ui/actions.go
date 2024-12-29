@@ -55,6 +55,14 @@ func toggleMethod(g *gocui.Gui, v *gocui.View) error {
 	return nil
 }
 
+// displayError displays errors ...
+//
+// Parameters:
+//   - g: The gocui.Gui.
+//   - err: The error to be displayed.
+//
+// Returns:
+//   - nothing, but prints an error using fmt.Fprintf
 func displayError(g *gocui.Gui, err error) {
 	outputView, _ := g.View("output")
 	outputView.Clear()
