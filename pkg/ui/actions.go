@@ -7,6 +7,15 @@ import (
 	"github.com/jroimartin/gocui"
 )
 
+// sendRequest sends the REST request using the http package
+// Pulls the url, method, and body from the gocui fields and sends the methods.
+//
+// Parameters:
+//   - g: The gocui.Gui
+//   - v: The gocui view
+//
+// Returns:
+//   - error: Any error encountered while sending the request
 func sendRequest(g *gocui.Gui, v *gocui.View) error {
 	urlView, _ := g.View("url")
 	url := urlView.Buffer()
@@ -25,6 +34,14 @@ func sendRequest(g *gocui.Gui, v *gocui.View) error {
 	return nil
 }
 
+// toggleMethod toggles the HTTP method between different options.
+//
+// Parameters:
+//   - g: The gocui.Gui to access the ui
+//   - v: The gocui.View
+//
+// Returns:
+//   - error: Any error encountered while toggling the method
 func toggleMethod(g *gocui.Gui, v *gocui.View) error {
 	methods := []string{"GET", "POST", "PUT", "DELETE"}
 	for i, method := range methods {

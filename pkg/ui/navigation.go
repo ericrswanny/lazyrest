@@ -11,7 +11,7 @@ import (
 //   - g: The gocui.Gui to set the keybindings on
 //
 // Returns:
-//   - error: Any error encountered while setting hte keybindings.
+//   - error: Any error encountered while setting the keybindings.
 func SetupKeybindings(g *gocui.Gui) error {
 	// Quit application
 	if err := g.SetKeybinding("", gocui.KeyCtrlC, gocui.ModNone, quit); err != nil {
